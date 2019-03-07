@@ -5,7 +5,7 @@ date: "March 6, 2019"
 output: html_document
 ---
 
-```{r echo=FALSE}
+```{r, echo=FALSE,include=FALSE}
 library(tidyverse)
 library(data.table)
 data <- read.csv("avocado.csv")
@@ -42,7 +42,34 @@ data <- read.csv("avocado.csv")
 ****
 
 ```{r echo=FALSE}
+tidy <- data %>% separate(Date, into =c("Year","Month","Day"), sep = "-") %>% select(-"year",-"X") %>% gather('X4046','X4225','X4770',key = 'PLUcode',value = 'amount') 
+tidy$Year <- parse_integer(tidy$Year)
+tidy$Month <- parse_integer(tidy$Month)
+tidy$Day <- parse_integer(tidy$Day)
+tidy2 <- tidy %>% filter(region == 'SanDiego'|region == 'Portland',type=='conventional')
+tidy3 <- tidy %>% filter(region == 'SanDiego',type=='conventional')
+tidy4 <- tidy %>% filter(region == 'Portland',type=='conventional')
+
+
+
+ggplot() +
+  geom_point(data = tidy3,mapping = aes(y= AveragePrice, x = Total.Volume),color = 'red')+
+    geom_point(data = tidy4,mapping = aes(y= AveragePrice, x = Total.Volume),color = 'blue')+
+  geom_smooth(data = tidy3,mapping = aes(y= AveragePrice, x = Total.Volume),size = 1.2,color = 'red',method = 'lm')+
+  geom_smooth(data = tidy4,mapping = aes(y= AveragePrice, x = Total.Volume),size = 1.2,method = 'lm')+
+ggtitle('Price Vs Volume for SanDiego and Portlad')
+
+
+#corSandiego
+cor(tidy3$AveragePrice,tidy3$Total.Volume)
+#corPortland
+cor(tidy4$AveragePrice,tidy4$Total.Volume)
+
 ```
+
+* This graph above shows a strong negative correlation between average price and total volume of avocadoes. This agrees with concepts of supply and demand. The red points are for the region of SanDiego and the blue points are for the region of Portland.The coorelation for each region is -0.7528281 and -0.7081038 respectively. 
+* There are several verbs I used to tidy the avocado data. First,I used seperate and parse_interger to turn the date into usable columns of day,month, and year. I also used gather to combine the PLU codes for the avocadoes into one variable. Finally, I used filter to graph average price Vs. total volume in respect to a region, specifically SanDiego and Portland.
+
 #### Arie's Section
 ****
 
