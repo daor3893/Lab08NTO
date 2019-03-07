@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 ---
 title: "Lab08NotTeamOne"
 author: "David Orozco, Ryan Tate, Arie del Valle, Anderson Mun, Ethan Schacht"
@@ -86,4 +87,104 @@ ABC
 * Arie-
 * Anderson-
 * Ethan-
+=======
+---
+title: "Lab08NotTeamOne"
+author: "David Orozco, Ryan Tate, Arie del Valle, Anderson Mun, Ethan Schacht"
+date: "March 6, 2019"
+output: html_document
+---
+
+```{r echo=FALSE}
+library(tidyverse)
+library(data.table)
+data <- read.csv("avocado.csv")
+```
+### Team Section
+****
+#### Question
+****
+
+```{r echo=FALSE}
+```
+#### Data
+****
+
+```{r echo=FALSE}
+```
+#### Conclusion
+****
+
+```{r echo=FALSE}
+```
+#### Data Description
+****
+
+```{r echo=FALSE}
+```
+### Individual Section
+****
+
+```{r echo=FALSE}
+```
+
+#### David's Section
+****
+
+```{r echo=FALSE}
+```
+#### Arie's Section
+****
+
+```{r echo=FALSE}
+```
+#### Anderson's Section
+****
+
+```{r echo=FALSE}
+```
+#### Ryan's Section
+****
+
+```{r echo=FALSE}
+```
+#### Ethan's Section
+****
+
+```{r echo=FALSE}
+
+tidy_data <- data %>%
+  separate(Date, into = c("year","month","day"), sep = "-") %>%
+  mutate(conventional = ifelse(type == "conventional", "1", "0")) %>%
+  mutate(organic = ifelse(type == "organic", "1", "0")) %>%
+  select(-X, -day)
+
+tidy_data$month <- parse_double(tidy_data$month)
+tidy_data$year <- parse_double(tidy_data$year)
+tidy_data$conventional <- parse_double(tidy_data$conventional)
+tidy_data$organic <- parse_double(tidy_data$organic)
+
+avocado <- tidy_data %>%
+  group_by(month) %>%
+  summarise(avg_price = mean(AveragePrice),
+            avg_volume = mean(`Total.Volume`)
+  )
+
+ggplot(data = avocado) +
+  geom_point(mapping = aes(x = month, y = avg_price, size = avg_volume)) +
+  geom_line(mapping = aes(x = month, y = avg_price)) +
+  xlab("Month") +
+  ylab("Average Price per Unit") +
+  ggtitle("Avocado Prices over Time of Year by Volume Sold")
+```
+
+* Findings: I asked the question of how the price of avocados changes throughout the year. I tidied the data by separating date into year, month, and day and transformed the data by grouping into month and summarising average price and volume stats. This graph displays the time of year (month) against the average price of avocadoes per unit, also illustrating the volume of avocados sold at every data point by size.  The average price of avocados steadily increases throughout the year until October, when the prices begin to plummet.  We can also see that the volume sold generally decreases as the price increases, which makes sense due to supply and demand and also suggests that avocados are freshest / most in season around September and October.
+
+#### Who did what?
+
+* David-
+* Arie-
+* Anderson-
+* Ethan-
+>>>>>>> Stashed changes
 * Ryan-
