@@ -43,12 +43,26 @@ data <- read.csv("avocado.csv")
 ****
 
 ```{r echo=FALSE}
+
 ```
 #### Arie's Section
 ****
-
 ```{r echo=FALSE}
+Regions_mean <- data%>%
+  select(c(region, type, AveragePrice ))%>%
+  group_by(region, type)%>%
+  summarise(Avg_region = mean(AveragePrice))
+
+ggplot(Regions_mean, mapping = aes(x = Avg_region))+
+  geom_density()+
+  facet_wrap(~type)+
+  xlab("Average Price")+
+  ggtitle("Distribution of the Average Price of Conventional and Organic Avocados")
 ```
+
+* Findings: This graph shows that the there is a higher disribution of conventional avocados than organic avocados. From this graph it shows that the average price amoungst all regions is around $1.10 for conventional and $1.60 for organic.
+* I used select to use the variables I wanted to work with. I grouped by region and type. I then took the average of each region with summarise. Then I created a ggplot with the new data variable I created. I wanted to compare the distribution of average price between conventional and organic avocados. So I used geom_density and faceted with type.
+
 #### Anderson's Section
 ****
 
