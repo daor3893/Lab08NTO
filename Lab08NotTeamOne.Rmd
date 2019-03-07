@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 ---
 title: "Lab08NotTeamOne"
 author: "David Orozco, Ryan Tate, Arie del Valle, Anderson Mun, Ethan Schacht"
@@ -43,9 +42,6 @@ data <- read.csv("avocado.csv")
 ****
 
 ```{r echo=FALSE}
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
 tidy <- data %>% separate(Date, into =c("Year","Month","Day"), sep = "-") %>% select(-"year",-"X") %>% gather('X4046','X4225','X4770',key = 'PLUcode',value = 'amount') 
 tidy$Year <- parse_integer(tidy$Year)
 tidy$Month <- parse_integer(tidy$Month)
@@ -68,13 +64,13 @@ ggtitle('Price Vs Volume for SanDiego and Portlad')
 cor(tidy3$AveragePrice,tidy3$Total.Volume)
 #corPortland
 cor(tidy4$AveragePrice,tidy4$Total.Volume)
->>>>>>> master
 
 ```
 
-* This graph above shows a strong negative correlation between average price and total volume of avocadoes. This agrees with concepts of supply and demand. The red points are for the region of SanDiego and the blue points are for the region of Portland.The coorelation for each region is -0.7528281 and -0.7081038 respectively. 
-* There are several verbs I used to tidy the avocado data. First,I used seperate and parse_interger to turn the date into usable columns of day,month, and year. I also used gather to combine the PLU codes for the avocadoes into one variable. Finally, I used filter to graph average price Vs. total volume in respect to a region, specifically SanDiego and Portland.
+* The graph above shows a strong negative correlation between average price and the total volume of avocadoes. This agrees with concepts of supply and demand. The red points are for the region of SanDiego and the blue points are for the region of Portland.The coorelation for each region is -0.7528281 and -0.7081038 respectively. 
+* There are several verbs I used to tidy the avocado data. First, I used seperate and parse_interger to turn the date into usable columns of day,month, and year. I also used gather to combine the PLU codes for the avocadoes into one variable. Finally, I used filter to graph average price against the total volume in respect to a region, specifically SanDiego and Portland.
 
+****
 #### Arie's Section
 ****
 ```{r echo=FALSE}
@@ -90,17 +86,10 @@ ggplot(Regions_mean, mapping = aes(x = Avg_region))+
   ggtitle("Distribution of the Average Price of Conventional and Organic Avocados")
 ```
 
-* Findings: This graph shows that the there is a higher disribution of conventional avocados than organic avocados. From this graph it shows that the average price amoungst all regions is around $1.10 for conventional and $1.60 for organic.
-* I used select to use the variables I wanted to work with. I grouped by region and type. I then took the average of each region with summarise. Then I created a ggplot with the new data variable I created. I wanted to compare the distribution of average price between conventional and organic avocados. So I used geom_density and faceted with type.
+* Findings: This graph shows that the there is a higher distribution of conventional avocados than organic avocados. From this graph it shows that the average price amongst all regions is around $1.10 for conventional and $1.60 for organic.
+* I used select to use the variables I wanted to work with. I grouped by region and type. I then took the average of each region with summarise. I created a ggplot with the new data I created. I wanted to compare the distribution of average price between conventional and organic avocados. So I used geom_density and faceted with type.
 
-=======
-```
-#### Arie's Section
-****
-
-```{r echo=FALSE}
-```
->>>>>>> Stashed changes
+***
 #### Anderson's Section
 ****
 
@@ -122,6 +111,8 @@ ABC
 * I have created a tibble that shows the average amount of bags of avacados among five seperate regions varying from Albany to Houston. In the tibble you can see the average values of small, large and extra large bags for each region.
 * To generate my findings for the tibble I used a group by function and a summarise function to find the mean of the amount of any particular bag size for each region. 
 
+
+****
 #### Ryan's Section
 ****
 
@@ -139,10 +130,12 @@ ggplot( data = df2, aes(x = ave, y = region)) +
   geom_smooth(method = "lm", na.rm = T) +
   ggtitle("Average Price per avocado by region")
 ```
+
 * I tiddied my data by putting it into a tibble with as_tibble and read_csv. I then transformed my data with a group by and summarize to group the average price by region. Then I used an arrange with desc order to find the best region for avocado buying, which is Houston, or H-town as the locals call it.
 
+* WHAT WERE YOUR FINDINGS?
 
-
+****
 #### Ethan's Section
 ****
 
@@ -174,14 +167,11 @@ ggplot(data = avocado) +
 ```
 
 * Findings: I asked the question of how the price of avocados changes throughout the year. I tidied the data by separating date into year, month, and day and transformed the data by grouping into month and summarising average price and volume stats. This graph displays the time of year (month) against the average price of avocadoes per unit, also illustrating the volume of avocados sold at every data point by size.  The average price of avocados steadily increases throughout the year until October, when the prices begin to plummet.  We can also see that the volume sold generally decreases as the price increases, which makes sense due to supply and demand and also suggests that avocados are freshest / most in season around September and October.
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
 #### Who did what?
 
 * David-
 * Arie-
 * Anderson-
 * Ethan-
-=======
+* Ryan-
