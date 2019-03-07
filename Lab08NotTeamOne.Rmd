@@ -43,6 +43,7 @@ data <- read.csv("avocado.csv")
 ****
 
 ```{r echo=FALSE}
+<<<<<<< Updated upstream
 
 ```
 #### Arie's Section
@@ -63,6 +64,14 @@ ggplot(Regions_mean, mapping = aes(x = Avg_region))+
 * Findings: This graph shows that the there is a higher disribution of conventional avocados than organic avocados. From this graph it shows that the average price amoungst all regions is around $1.10 for conventional and $1.60 for organic.
 * I used select to use the variables I wanted to work with. I grouped by region and type. I then took the average of each region with summarise. Then I created a ggplot with the new data variable I created. I wanted to compare the distribution of average price between conventional and organic avocados. So I used geom_density and faceted with type.
 
+=======
+```
+#### Arie's Section
+****
+
+```{r echo=FALSE}
+```
+>>>>>>> Stashed changes
 #### Anderson's Section
 ****
 
@@ -120,6 +129,10 @@ ggplot(data = avocado) +
 ```
 
 * Findings: I asked the question of how the price of avocados changes throughout the year. I tidied the data by separating date into year, month, and day and transformed the data by grouping into month and summarising average price and volume stats. This graph displays the time of year (month) against the average price of avocadoes per unit, also illustrating the volume of avocados sold at every data point by size.  The average price of avocados steadily increases throughout the year until October, when the prices begin to plummet.  We can also see that the volume sold generally decreases as the price increases, which makes sense due to supply and demand and also suggests that avocados are freshest / most in season around September and October.
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 #### Who did what?
 
 * David-
