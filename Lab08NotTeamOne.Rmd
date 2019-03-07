@@ -52,7 +52,23 @@ data <- read.csv("avocado.csv")
 ****
 
 ```{r echo=FALSE}
+A <- data %>%
+  group_by(region) %>%
+  summarise(Avg_Bag = mean(XLarge.Bags))
+
+ABC <- tibble(
+  'Region' = c('Albany', 'Boston', 'California', 'Denver', 'Houstan'),
+  'AverageBag' = c(7929.747, 63596.085, 729828.975, 174429.015, 148565.278),
+  'SmallBags' = c(6647.76, 58906.590, 677803.787, 55513.625, 96228.306),
+  'LargeBags' = c(1153.4962, 4438.3647, 36425.8459, 118760.1229, 51372.0826),
+  'XLargeBags' = c(128.48864, 251.12423, 15599.34293, 155.27006, 964.88979)
+)
+ABC
 ```
+
+* I have created a tibble that shows the average amount of bags of avacados among five seperate regions varying from Albany to Houstan. In the tibble you can see the average values of small, large and extra large bags for each region.
+* To generate my findings for the tibble I used a group by function and a summarise function to find the mean of the amount of any particular bag size for each region. 
+
 #### Ryan's Section
 ****
 
