@@ -114,7 +114,23 @@ ABC
 ****
 
 ```{r echo=FALSE}
+
+df1 <- as_tibble(data)
+
+df2 <- df1 %>%
+  group_by(region) %>%
+  summarize(ave = mean(AveragePrice, na.rm=TRUE)) %>%
+  arrange(-desc(ave))
+
+ggplot( data = df2, aes(x = ave, y = region)) +
+  geom_point( na.rm = T) +
+  geom_smooth(method = "lm", na.rm = T) +
+  ggtitle("Average Price per avocado by region")
 ```
+* I tiddied my data by putting it into a tibble with as_tibble and read_csv. I then transformed my data with a group by and summarize to group the average price by region. Then I used an arrange with desc order to find the best region for avocado buying, which is Houston, or H-town as the locals call it.
+
+
+
 #### Ethan's Section
 ****
 
