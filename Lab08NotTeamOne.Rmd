@@ -14,13 +14,13 @@ data <- read.csv("avocado.csv")
 ****
 #### Question
 ****
-* Overal Question: What are the factors that affect the avergage price or total volmue of hass avocados, and how can we understand these factors to generate more sales.
+* Overal Question: What are the factors that affect the avergage price of avocados, and how can we understand these factors to generate more sales? This is important becuase understanding the what factors affect average price can help avacado sellers to maximize profit. It also allows for avacado buyers to save money. Note: Who doesn't love avocadoes?!
 
-
-```{r echo=FALSE}
-```
+****
 #### Data
 ****
+
+Volume effect on Price: 
 
 ```{r echo=FALSE}
 tidy <- data %>% separate(Date, into =c("Year","Month","Day"), sep = "-") %>% select(-"year",-"X") %>% gather('X4046','X4225','X4770',key = 'PLUcode',value = 'amount') 
@@ -35,16 +35,16 @@ ggplot() +
   geom_point(data = tidy,mapping = aes(y= AveragePrice, x = Total.Volume))+
    geom_smooth(data = tidy5,mapping = aes(y= AveragePrice, x = Total.Volume),size = 1.2,method = 'lm')+
      geom_smooth(data = tidy6,mapping = aes(y= AveragePrice, x = Total.Volume),size = 1.2,method = 'lm',color = 'red') +
-  ggtitle('Price VS Volume')
+  ggtitle('Price VS Volume')+ ylab('Average Price($)')+xlab('Total Volume')
 
 ggplot(data = tidy5,mapping = aes(y = AveragePrice, x = Total.Volume))+
   geom_point()+geom_smooth(method = 'lm')+
-    ggtitle('Price VS Volume-(Volume > 2e+07)')
+    ggtitle('Price VS Volume-(Volume > 2e+07)')+ ylab('Average Price($)')+xlab('Total Volume')
 
 
 ggplot(data = tidy6,mapping = aes(y = AveragePrice, x = Total.Volume))+
   geom_point()+geom_smooth(method = 'lm',color = 'red')+
-      ggtitle('Price VS Volume-(Volume < 2e+07)')
+      ggtitle('Price VS Volume-(Volume < 2e+07)') + ylab('Average Price($)')+xlab('Total Volume')
 
 #corblue
 cor(tidy5$AveragePrice,tidy5$Total.Volume)
@@ -52,13 +52,61 @@ cor(tidy5$AveragePrice,tidy5$Total.Volume)
 cor(tidy6$AveragePrice,tidy6$Total.Volume)
 
 ```
-#### Conclusion
-****
-* Our objective was to manipulate data about avocado sales, in order to identify factors that will boost revenue for retailers. Together we created a general plot that compares the total volume of sales to the avergae price. We discovered that there was a separation in the plot when total volume reached 2e+07. The total volume that was greater than 2e+07 displayed a weak negative correlation. While the total volume less than 2e+07 showed a strong negative correlation. Individually we compared several factors that may affect the average price or total volume. From these plots, we noticed that region, type, and year affect both volume in sales and average price. The best corse of action to maximize profit is to keep avocado prices low while in season, and upsale on pairings such as tortilla chips and artisan bread. Total number of sales are highest when they are in season and cheaper prices will attract the consumers, while upselling on tortilla chips and bread will add on to their total cost, therefore increasing revenue.
 
+* There is a negative coorelation between the average price of avocadoes and the total volume of avocadoes present. This makes sense because the more avocadoes you have, the quiker you need to sell them. Thus, it would make sense to lower the prices. This coorelation becomes stronger with volumes greater than 2e+07. Red line coorelation is -.34, whil the blue line is -.50. This leads us to believe that with execive amounts of avocadoes,it would be more profitable to decrease the prices than letting avocadoes go to waste. 
+
+****
+Regional effect on Price:
+
+```{r,echo=FALSE}
+#price based on region
+price <- tidy %>% group_by(region) %>% summarise(mean = mean(AveragePrice)) %>% arrange(-desc(mean))%>% print(n = 3)
+```
+
+* The tibble above shows the regions in which the mean avereage avocadoes price throughout the year is the lowest. Houston, Dallas, and SouthCentral regions have the losest avocado prices. Note: Hartford/Springfield have the highest avocado prices. 
+
+****
+Monthly effect on Price:
+
+```{r, echo=FALSE}
+# Montly affect on prices
+temp <- tidy %>% group_by(Month) %>% summarize(mean = mean(AveragePrice))
+
+ggplot(data = temp)+
+  geom_point(mapping = aes(x = Month, y = mean))+
+  geom_line(mapping = aes(x = Month, y = mean))+
+  ggtitle("Montly Avocado Prices") + ylab("Mean Price ($)")
+```
+
+* The mean monthly avereage price of avocadoes steadily increases throughout the year and then pluments around the colder months (approx November). This coorelates well with avocado season which ,depending on the type of avocado, ranges from August-November.
+
+****
+Annual effect on prices: 
 
 ```{r echo=FALSE}
+ann <- tidy %>% group_by(Year)%>% summarise(mean = mean(AveragePrice)) %>% arrange(desc(Year)) 
+ann
 ```
+
+* There does not seem to be an annual increase in mean avocado prices. Although there is a price spike in 2017. This coincides with the 2017 drought, the worst drought in 17 years. This could explain the possible price spike. 
+
+****
+Organic Vs. Conventional
+
+```{r,echo=FALSE}
+org <- tidy %>% group_by(type) %>% summarise(mean = mean(AveragePrice)) %>% arrange(desc(mean))
+org
+
+```
+
+* The tibble above shows the average price of avocaodes based on their type (Conventional or Organic). Organic avocadoes are a whopping 50 cents more expensive on average! 
+
+
+#### Conclusion
+****
+* Our objective was to manipulate data about avocado sales, in order to identify factors that will boost revenue for retailers. Together we created a general plot that compares the total volume of sales to the avergae price. We discovered that there was a separation in the plot when total volume reached 2e+07. The total volume that was less than 2e+07 displayed a weak negative correlation. While the total volume greater than 2e+07 showed a strong negative correlation. Individually we compared several factors that may affect the average price or total volume. From these plots, we noticed that region, type, and year affect both volume in sales and average price. The best corse of action to maximize profit is to keep avocado prices low while in season, and upsale on pairings such as tortilla chips and artisan bread. Total number of sales are highest when they are in season and cheaper prices will attract the consumers, while upselling on tortilla chips and bread will add on to their total cost, therefore increasing revenue.
+
+
 #### Data Description
 ****
 
