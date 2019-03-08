@@ -14,6 +14,8 @@ data <- read.csv("avocado.csv")
 ****
 #### Question
 ****
+* Overal Question: What are the factors that affect the avergage price or total volmue of hass avocados, and how can we understand these factors to generate more sales.
+
 
 ```{r echo=FALSE}
 ```
@@ -52,6 +54,8 @@ cor(tidy6$AveragePrice,tidy6$Total.Volume)
 ```
 #### Conclusion
 ****
+* Our objective was to manipulate data about avocado sales, in order to identify factors that will boost revenue for retailers. Together we created a general plot that compares the total volume of sales to the avergae price. We discovered that there was a separation in the plot when total volume reached 2e+07. The total volume that was greater than 2e+07 displayed a weak negative correlation. While the total volume less than 2e+07 showed a strong negative correlation. Individually we compared several factors that may affect the average price or total volume. From these plots, we noticed that region, type, and year affect both volume in sales and average price. The best corse of action to maximize profit is to keep avocado prices low while in season, and upsale on pairings such as tortilla chips and artisan bread. Total number of sales are highest when they are in season and cheaper prices will attract the consumers, while upselling on tortilla chips and bread will add on to their total cost, therefore increasing revenue.
+
 
 ```{r echo=FALSE}
 ```
@@ -95,7 +99,7 @@ cor(tidy4$AveragePrice,tidy4$Total.Volume)
 
 
 * The graph above shows a strong negative correlation between average price and the total volume of avocadoes. This agrees with concepts of supply and demand. The red points are for the region of SanDiego and the blue points are for the region of Portland.The coorelation for each region is -0.7528281 and -0.7081038 respectively. 
-* There are several verbs I used to tidy the avocado data. First, I used seperate and parse_interger to turn the date into usable columns of day,month, and year. I also used gather to combine the PLU codes for the avocadoes into one variable. Finally, I used filter to graph average price against the total volume in respect to a region, specifically SanDiego and Portland.
+* There are several verbs I used to tidy the avocado data. First, I used seperate and parse_interger to turn the date into usable columns of day,month, and year. I also used gather to combine the PLU codes for the avocadoes into one variable. Finally, I used filter to graph average price against the total volume in respect to a region, specifically SanDiego and Portland. 
 
 ****
 #### Arie's Section
