@@ -269,6 +269,5 @@ Note: The Vietnamese Currency (VND), is called the dong! :)
 * Ethan- ind section and findings, recommendations
 * David- Individual section, started GitHub Repository, Managed GitKraken merge conflicts,
 added team data comparisons for Average price against the following variables: Volume,Region,Type,and Year.
-* Ethan-
 * Ryan- Did his individual section and worked on data description and domain expert.
 
