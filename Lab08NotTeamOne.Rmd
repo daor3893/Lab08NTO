@@ -53,7 +53,7 @@ cor(tidy6$AveragePrice,tidy6$Total.Volume)
 
 ```
 
-* There is a negative coorelation between the average price of avocadoes and the total volume of avocadoes present. This makes sense because the more avocadoes you have, the quiker you need to sell them. Thus, it would make sense to lower the prices. This coorelation becomes stronger with volumes greater than 2e+07. Red line coorelation is -.34, whil the blue line is -.50. This leads us to believe that with execive amounts of avocadoes,it would be more profitable to decrease the prices than letting avocadoes go to waste. 
+* There is a negative coorelation between the average price of avocadoes and the total volume of avocadoes present. This makes sense because the more avocadoes you have, the quiker you need to sell them. Thus, it would make sense to lower the prices. This correlation becomes stronger with volumes greater than 2e+07. Red line coorelation is -.34, while the blue line is -.50. This leads us to believe that with excessive amounts of avocadoes,it would be more profitable to decrease the prices than letting avocadoes go to waste. 
 
 ****
 Regional effect on Price:
@@ -99,7 +99,7 @@ org
 
 ```
 
-* The tibble above shows the average price of avocaodes based on their type (Conventional or Organic). Organic avocadoes are a whopping 50 cents more expensive on average! 
+* The tibble above shows the average price of avocaodes based on their type (Conventional or Organic). Organic avocadoes are a whopping 50 cents more on average! 
 
 
 #### Conclusion
