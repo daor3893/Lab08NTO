@@ -264,7 +264,7 @@ ggplot(data = avocado) +
 Note: The Vietnamese Currency (VND), is called the dong! :)
 
 * David-
-* Arie-
+* Arie- Helped come up with question and writing the conclusion
 * Anderson-
 * Ethan-
 * Ryan-
