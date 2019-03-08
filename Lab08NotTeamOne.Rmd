@@ -263,7 +263,8 @@ ggplot(data = avocado) +
 
 Note: The Vietnamese Currency (VND), is called the dong! :)
 
-* David-
+* David- Individual section, started GitHub Repository, Managed GitKraken merge conflicts,
+added team data comparisons for Average price against the following variables: Volume,Region,Type,and Year.
 * Arie-
 * Anderson-
 * Ethan-
