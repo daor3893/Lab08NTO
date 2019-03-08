@@ -32,7 +32,7 @@ tidy5 <- tidy %>% filter(Total.Volume >= 2e+07)
 tidy6 <- tidy %>% filter(Total.Volume <= 2e+07)
 
 ggplot() +
-  geom_point(data = tidy,mapping = aes(y= AveragePrice, x = Total.Volume))+
+  geom_point(data = tidy,mapping = aes(y= AveragePrice, x = Total.Volume),alpha = 1/8)+
    geom_smooth(data = tidy5,mapping = aes(y= AveragePrice, x = Total.Volume),size = 1.2,method = 'lm')+
      geom_smooth(data = tidy6,mapping = aes(y= AveragePrice, x = Total.Volume),size = 1.2,method = 'lm',color = 'red') +
   ggtitle('Price VS Volume')+ ylab('Average Price($)')+xlab('Total Volume')
@@ -43,7 +43,7 @@ ggplot(data = tidy5,mapping = aes(y = AveragePrice, x = Total.Volume))+
 
 
 ggplot(data = tidy6,mapping = aes(y = AveragePrice, x = Total.Volume))+
-  geom_point()+geom_smooth(method = 'lm',color = 'red')+
+  geom_point(alpha = 1/10)+geom_smooth(method = 'lm',color = 'red')+
       ggtitle('Price VS Volume-(Volume < 2e+07)') + ylab('Average Price($)')+xlab('Total Volume')
 
 #corblue
@@ -54,6 +54,7 @@ cor(tidy6$AveragePrice,tidy6$Total.Volume)
 ```
 
 * There is a negative coorelation between the average price of avocadoes and the total volume of avocadoes present. This makes sense because the more avocadoes you have, the quiker you need to sell them. Thus, it would make sense to lower the prices. This correlation becomes stronger with volumes greater than 2e+07. Red line coorelation is -.34, while the blue line is -.50. This leads us to believe that with excessive amounts of avocadoes,it would be more profitable to decrease the prices than letting avocadoes go to waste. 
+* Note: The darker the point, the more points overlap there. 
 
 ****
 Regional effect on Price:
@@ -88,7 +89,7 @@ ann <- tidy %>% group_by(Year)%>% summarise(mean = mean(AveragePrice)) %>% arran
 ann
 ```
 
-* There does not seem to be an annual increase in mean avocado prices. Although there is a price spike in 2017. This coincides with the 2017 drought, the worst drought in 17 years. This could explain the possible price spike. 
+* There does not seem to be an annual increase in mean avocado prices. Although there is a price spike in 2017. This coincides with the 2017 drought, the worst drought in 17 years. This could explain the possible price spike. Note: Where's My Water??
 
 ****
 Organic Vs. Conventional
@@ -99,12 +100,12 @@ org
 
 ```
 
-* The tibble above shows the average price of avocaodes based on their type (Conventional or Organic). Organic avocadoes are a whopping 50 cents more on average! 
+* The tibble above shows the average price of avocaodes based on their type (Conventional or Organic). Organic avocadoes are a whopping 50 cents more on average! Note: With 50 U.S cents, you can buy 2 glasses of beer in Vietnam!
 
 
 #### Conclusion
 ****
-* Our objective was to manipulate data about avocado sales, in order to identify factors that will boost revenue for retailers. Together we created a general plot that compares the total volume of sales to the avergae price. We discovered that there was a separation in the plot when total volume reached 2e+07. The total volume that was less than 2e+07 displayed a weak negative correlation. While the total volume greater than 2e+07 showed a strong negative correlation. Individually we compared several factors that may affect the average price or total volume. From these plots, we noticed that region, type, and year affect both volume in sales and average price. The best corse of action to maximize profit is to keep avocado prices low while in season, and upsale on pairings such as tortilla chips and artisan bread. Total number of sales are highest when they are in season and cheaper prices will attract the consumers, while upselling on tortilla chips and bread will add on to their total cost, therefore increasing revenue.
+* Our objective was to manipulate data about avocado sales, in order to identify factors that will boost revenue for retailers. Together we created a general plot that compares the total volume of sales to the avergae price. We discovered that there was a separation in the plot when total volume reached 2e+07. The total volume that was less than 2e+07 displayed a weak negative correlation. While the total volume greater than 2e+07 showed a strong negative correlation. Individually we compared several factors that may affect the average price. From these plots, we noticed that region, type, and year affect average price. The best corse of action to maximize profit is to keep avocado prices low while in season, and upsale on pairings such as tortilla chips and artisan bread. Total number of sales are highest when they are in season and cheaper prices will attract the consumers, while upselling on tortilla chips and bread will add on to their total cost, therefore increasing revenue.
 
 
 #### Data Description
@@ -112,12 +113,10 @@ org
 
 ```{r echo=FALSE}
 ```
+
 ### Individual Section
+
 ****
-
-```{r echo=FALSE}
-```
-
 #### David's Section
 ****
 
@@ -249,8 +248,11 @@ ggplot(data = avocado) +
 
 #### Who did what?
 
+Note: The Vietnamese Currency (VND), is called the dong! :)
+
 * David-
 * Arie-
 * Anderson-
 * Ethan-
 * Ryan-
+
