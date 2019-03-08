@@ -21,6 +21,34 @@ data <- read.csv("avocado.csv")
 ****
 
 ```{r echo=FALSE}
+tidy <- data %>% separate(Date, into =c("Year","Month","Day"), sep = "-") %>% select(-"year",-"X") %>% gather('X4046','X4225','X4770',key = 'PLUcode',value = 'amount') 
+tidy$Year <- parse_integer(tidy$Year)
+tidy$Month <- parse_integer(tidy$Month)
+tidy$Day <- parse_integer(tidy$Day)
+
+tidy5 <- tidy %>% filter(Total.Volume >= 2e+07)
+tidy6 <- tidy %>% filter(Total.Volume <= 2e+07)
+
+ggplot() +
+  geom_point(data = tidy,mapping = aes(y= AveragePrice, x = Total.Volume))+
+   geom_smooth(data = tidy5,mapping = aes(y= AveragePrice, x = Total.Volume),size = 1.2,method = 'lm')+
+     geom_smooth(data = tidy6,mapping = aes(y= AveragePrice, x = Total.Volume),size = 1.2,method = 'lm',color = 'red') +
+  ggtitle('Price VS Volume')
+
+ggplot(data = tidy5,mapping = aes(y = AveragePrice, x = Total.Volume))+
+  geom_point()+geom_smooth(method = 'lm')+
+    ggtitle('Price VS Volume-(Volume > 2e+07)')
+
+
+ggplot(data = tidy6,mapping = aes(y = AveragePrice, x = Total.Volume))+
+  geom_point()+geom_smooth(method = 'lm',color = 'red')+
+      ggtitle('Price VS Volume-(Volume < 2e+07)')
+
+#corblue
+cor(tidy5$AveragePrice,tidy5$Total.Volume)
+#corred
+cor(tidy6$AveragePrice,tidy6$Total.Volume)
+
 ```
 #### Conclusion
 ****
@@ -51,7 +79,6 @@ tidy3 <- tidy %>% filter(region == 'SanDiego',type=='conventional')
 tidy4 <- tidy %>% filter(region == 'Portland',type=='conventional')
 
 
-
 ggplot() +
   geom_point(data = tidy3,mapping = aes(y= AveragePrice, x = Total.Volume),color = 'red')+
     geom_point(data = tidy4,mapping = aes(y= AveragePrice, x = Total.Volume),color = 'blue')+
@@ -64,8 +91,8 @@ ggtitle('Price Vs Volume for SanDiego and Portlad')
 cor(tidy3$AveragePrice,tidy3$Total.Volume)
 #corPortland
 cor(tidy4$AveragePrice,tidy4$Total.Volume)
-
 ```
+
 
 * The graph above shows a strong negative correlation between average price and the total volume of avocadoes. This agrees with concepts of supply and demand. The red points are for the region of SanDiego and the blue points are for the region of Portland.The coorelation for each region is -0.7528281 and -0.7081038 respectively. 
 * There are several verbs I used to tidy the avocado data. First, I used seperate and parse_interger to turn the date into usable columns of day,month, and year. I also used gather to combine the PLU codes for the avocadoes into one variable. Finally, I used filter to graph average price against the total volume in respect to a region, specifically SanDiego and Portland.
