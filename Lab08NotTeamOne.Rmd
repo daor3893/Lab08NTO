@@ -103,7 +103,7 @@ org
 * The tibble above shows the average price of avocaodes based on their type (Conventional or Organic). Organic avocadoes are a whopping 50 cents more on average! Note: With 50 U.S cents, you can buy 2 glasses of beer in Vietnam!
 
 
-#### Conclusion
+#### Conclusion/Recommendations
 ****
 * Our objective was to manipulate data about avocado sales, in order to identify factors that will boost revenue for retailers. Together we created a general plot that compares the total volume of sales to the avergae price. We discovered that there was a separation in the plot when total volume reached 2e+07. The total volume that was less than 2e+07 displayed a weak negative correlation. While the total volume greater than 2e+07 showed a strong negative correlation. Individually we compared several factors that may affect the average price. From these plots, we noticed that region, type, and year affect average price. The best corse of action to maximize profit is to keep avocado prices low while in season, and upsale on pairings such as tortilla chips and artisan bread. Total number of sales are highest when they are in season and cheaper prices will attract the consumers, while upselling on tortilla chips and bread will add on to their total cost, therefore increasing revenue.
 
@@ -265,7 +265,7 @@ Note: The Vietnamese Currency (VND), is called the dong! :)
 
 * David-
 * Arie- Helped come up with question and writing the conclusion
-* Anderson-
-* Ethan-
+* Anderson- good team attitude
+* Ethan- ind section and findings, recommendations
 * Ryan-
 
