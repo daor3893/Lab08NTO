@@ -111,6 +111,7 @@ org
 #### Data Description
 ****
 
+*Overall, the data shows that there is a clear correlation between month and price of avocados as the prices rise until October and then fall quickly.  In addition, organic avocados appear to have a higher price than coventional based on the distribution and avocados also sell at cheapest prices in the south, especially Texas.  All of our data also supports the concept of supply and demand as volume rises when price goes down
 ```{r echo=FALSE}
 ```
 
@@ -244,7 +245,7 @@ ggplot(data = avocado) +
   ggtitle("Avocado Prices over Time of Year by Volume Sold")
 ```
 
-* Findings: I asked the question of how the price of avocados changes throughout the year. I tidied the data by separating date into year, month, and day and transformed the data by grouping into month and summarising average price and volume stats. This graph displays the time of year (month) against the average price of avocadoes per unit, also illustrating the volume of avocados sold at every data point by size.  The average price of avocados steadily increases throughout the year until October, when the prices begin to plummet.  We can also see that the volume sold generally decreases as the price increases, which makes sense due to supply and demand and also suggests that avocados are freshest / most in season around September and October.
+* Findings: I asked the question of how the price of avocados changes throughout the year. I tidied the data by separating date into year, month, and day and transformed the data by grouping into month and summarising average price and volume stats. This graph displays the time of year (month) against the average price of avocadoes per unit, also illustrating the volume of avocados sold at every data point by size.  The average price of avocados steadily increases throughout the year until October, when the prices begin to plummet.  We can also see that the volume sold generally decreases as the price increases, which makes sense due to supply and demand and also suggests that avocados are freshest / most in season around January through May.
 
 #### Who did what?
 
