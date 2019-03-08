@@ -104,12 +104,13 @@ org
 
 #### Conclusion
 ****
-* Our objective was to manipulate data about avocado sales, in order to identify factors that will boost revenue for retailers. Together we created a general plot that compares the total volume of sales to the avergae price. We discovered that there was a separation in the plot when total volume reached 2e+07. The total volume that was less than 2e+07 displayed a weak negative correlation. While the total volume greater than 2e+07 showed a strong negative correlation. Individually we compared several factors that may affect the average price or total volume. From these plots, we noticed that region, type, and year affect both volume in sales and average price. The best corse of action to maximize profit is to keep avocado prices low while in season, and upsale on pairings such as tortilla chips and artisan bread. Total number of sales are highest when they are in season and cheaper prices will attract the consumers, while upselling on tortilla chips and bread will add on to their total cost, therefore increasing revenue.
+* Our objective was to manipulate data about avocado sales, in order to identify factors that will boost revenue for retailers. Together we created a general plot that compares the total volume of sales to the avergae price. We discovered that there was a separation in the plot when total volume reached 2e+07. The total volume that was less than 2e+07 displayed a weak negative correlation. While the total volume greater than 2e+07 showed a strong negative correlation. Individually we compared several factors that may affect the average price or total volume. From these plots, we noticed that region, type, and year affect both volume in sales and average price. The best course of action to maximize profit is to keep avocado prices low while in season, and upsale on pairings such as tortilla chips and artisan bread. Total number of sales are highest when they are in season and cheaper prices will attract the consumers, while upselling on tortilla chips and bread will add on to their total cost, therefore increasing revenue.
 
 
 #### Data Description
 ****
 
+*Overall, the data shows that there is a clear correlation between month and price of avocados as the prices rise until October and then fall quickly.  In addition, organic avocados appear to have a higher price than coventional based on the distribution and avocados also sell at cheapest prices in the south, especially Texas.  All of our data also supports the concept of supply and demand as volume rises when price goes down
 ```{r echo=FALSE}
 ```
 ### Individual Section
@@ -245,7 +246,7 @@ ggplot(data = avocado) +
   ggtitle("Avocado Prices over Time of Year by Volume Sold")
 ```
 
-* Findings: I asked the question of how the price of avocados changes throughout the year. I tidied the data by separating date into year, month, and day and transformed the data by grouping into month and summarising average price and volume stats. This graph displays the time of year (month) against the average price of avocadoes per unit, also illustrating the volume of avocados sold at every data point by size.  The average price of avocados steadily increases throughout the year until October, when the prices begin to plummet.  We can also see that the volume sold generally decreases as the price increases, which makes sense due to supply and demand and also suggests that avocados are freshest / most in season around September and October.
+* Findings: I asked the question of how the price of avocados changes throughout the year. I tidied the data by separating date into year, month, and day and transformed the data by grouping into month and summarising average price and volume stats. This graph displays the time of year (month) against the average price of avocadoes per unit, also illustrating the volume of avocados sold at every data point by size.  The average price of avocados steadily increases throughout the year until October, when the prices begin to plummet.  We can also see that the volume sold generally decreases as the price increases, which makes sense due to supply and demand and also suggests that avocados are freshest / most in season around January through May.
 
 #### Who did what?
 
